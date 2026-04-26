@@ -91,7 +91,7 @@ FALLBACK_APP_PY_PATH = os.path.join(FALLBACK_PROJECT_DIR, "app.py")
 
 
 def _select_runtime_base_dir():
-    core_files = ["app.py", "main_config.json", "objects.json", "ar_receiver.py"]
+    core_files = ["app.py", "main_config.json", "objects.json", "shm_receiver.py"]
     dist_dir = os.path.join(BASE_DIR, "dist")
     if os.path.isdir(dist_dir) and all(
         os.path.exists(os.path.join(dist_dir, name)) for name in core_files
@@ -875,7 +875,7 @@ def start_preview():
     ar_script_path = None
     ar_cwd = None
     for directory in candidate_dirs:
-        candidate = os.path.join(directory, "ar_receiver.py")
+        candidate = os.path.join(directory, "shm_receiver.py")
         if os.path.exists(candidate):
             ar_script_path = candidate
             ar_cwd = directory
@@ -885,7 +885,7 @@ def start_preview():
         return jsonify(
             {
                 "success": False,
-                "error": "找不到预览脚本 ar_receiver.py",
+                "error": "找不到预览脚本 shm_receiver.py",
             }
         )
 
