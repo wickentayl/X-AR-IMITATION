@@ -830,7 +830,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnStartPreview.classList.contains("disabled")) return;
 
     btnStartPreview.classList.add("disabled");
-    btnStartPreview.textContent = "⏳ 正在请求拉起 ar_receiver.py ...";
+    btnStartPreview.textContent = "⏳ 正在请求拉起 shm_receiver.py ...";
 
     fetch("/api/start_preview", { method: "POST" })
       .then((r) => r.json())
